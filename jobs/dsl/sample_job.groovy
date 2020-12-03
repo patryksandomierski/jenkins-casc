@@ -8,7 +8,7 @@ pipelineJob("sample-job") {
                     remote {
                         url("https://github.com/patryksandomierski/jenkins-casc.git")
                     }
-                    branch("*/master")
+                    branch("main")
                 }
             }
             scriptPath("jobs/sample-job.groovy")
@@ -17,13 +17,6 @@ pipelineJob("sample-job") {
     }
     disabled(false)
     properties {
-        pipelineTriggers {
-            triggers {
-                cron {
-                    spec('H 2 * * *')
-                }
-            }
-        }
         disableConcurrentBuilds()
     }
 }

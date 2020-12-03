@@ -13,7 +13,7 @@ jobs:
             remote {
               url("https://github.com/patryksandomierski/jenkins-casc.git")
             }
-            branch('master')
+            branch('main')
           }
         }
         //triggers { cron('H/10 * * * *') }
