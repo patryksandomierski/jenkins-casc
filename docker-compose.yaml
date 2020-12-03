@@ -1,0 +1,12 @@
+---
+version: '2.0'
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-casc
+    ports:
+      - '80:8080'
+    restart: always
+#    volumes:
+#      - '/home/jenkins/data:/var/jenkins_home'
+...

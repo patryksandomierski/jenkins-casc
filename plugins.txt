@@ -1,0 +1,5 @@
+configuration-as-code:latest
+job-dsl:latest
+pipeline-utility-steps:latest
+timestamper:latest
+workflow-aggregator:latest

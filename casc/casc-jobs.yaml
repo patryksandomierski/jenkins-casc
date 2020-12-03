@@ -1,0 +1,30 @@
+---
+jobs:
+  - script: >
+      job('seed-job') {
+        logRotator {
+            artifactDaysToKeep(-1)
+            artifactNumToKeep(-1)
+            daysToKeep(-1)
+            numToKeep(10)
+        }
+        scm {
+          git {
+            remote {
+              url("https://your-repository.com/jenkins.git")
+              credentials('fake')
+            }
+            branch('master')
+          }
+        }
+        triggers { cron('H/10 * * * *') }
+        steps {
+          dsl {
+            external('dsl/*.groovy')
+            ignoreExisting(false)
+            removeAction('DELETE')
+            removeViewAction('DELETE')
+          }
+        }
+      }
+...
