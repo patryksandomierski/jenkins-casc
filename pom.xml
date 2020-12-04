@@ -68,7 +68,7 @@
                 <configuration>
                     <sources>
                         <source>
-                            <directory>${project.basedir}/src/main</directory>
+                            <directory>${project.basedir}/src</directory>
                             <includes>
                                 <include>**/*.groovy</include>
                             </includes>
@@ -76,7 +76,7 @@
                     </sources>
                     <testSources>
                         <testSource>
-                            <directory>${project.basedir}/src/test</directory>
+                            <directory>${project.basedir}/test</directory>
                             <includes>
                                 <include>**/*.groovy</include>
                             </includes>
