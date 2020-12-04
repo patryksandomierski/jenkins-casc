@@ -1,3 +1,6 @@
+@Library('jenkins-shared')
+import org.patsan.Sample
+
 pipeline {
 
     agent any
@@ -14,7 +17,8 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    echo 'build'
+                    Sample sample = new Sample()
+                    echo "${sample.sayHello()}"
                 }
             }
         }

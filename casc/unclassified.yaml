@@ -6,6 +6,26 @@ unclassified:
   fingerprints:
     fingerprintCleanupDisabled: false
     storage: "file"
+  gitSCM:
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  globalLibraries:
+    libraries:
+      - defaultVersion: "main"
+        includeInChangesets: false
+        name: "jenkins-shared"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                id: "c4477c89-b3ae-4172-842f-072a991c33af"
+                remote: "https://github.com/patryksandomierski/jenkins-casc.git"
+                traits:
+                  - "gitBranchDiscovery"
   junitTestResultStorage:
     storage: "file"
   location:
@@ -19,7 +39,7 @@ unclassified:
   shell:
     shell: "/bin/bash"
   timestamper:
-    allPipelines: false
+    allPipelines: true
     elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
     systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
 ...
