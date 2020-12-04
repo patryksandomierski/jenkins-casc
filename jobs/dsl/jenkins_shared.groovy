@@ -26,7 +26,4 @@ multibranchPipelineJob('jenkins-shared') {
             daysToKeep(1)
         }
     }
-    triggers {
-        periodic(10)
-    }
 }
