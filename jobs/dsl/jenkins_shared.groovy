@@ -1,9 +1,10 @@
 multibranchPipelineJob('jenkins-shared') {
     displayName('jenkins-shared')
     branchSources {
-        git {
+        github {
             id('jenkins-shared')
-            remote('https://github.com/patryksandomierski/jenkins-casc.git')
+            repoOwner('patryksandomierski')
+            repository('jenkins-casc')
         }
     }
     configure {
