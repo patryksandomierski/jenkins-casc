@@ -1,10 +1,14 @@
 multibranchPipelineJob('jenkins-shared') {
     displayName('jenkins-shared')
     branchSources {
-        github {
+        git {
             id('jenkins-shared')
-            repository('https://github.com/patryksandomierski/jenkins-casc.git')
+            remote('https://github.com/patryksandomierski/jenkins-casc.git')
         }
+    }
+    configure {
+        def traitBlock = it / 'sources' / 'data' / 'jenkins.branch.BranchSource' / 'source' / 'traits'
+        traitBlock << 'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
     }
     factory {
         workflowBranchProjectFactory {
