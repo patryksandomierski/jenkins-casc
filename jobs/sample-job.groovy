@@ -5,6 +5,10 @@ pipeline {
 
     agent any
 
+    tools {
+        maven 'Default'
+    }
+
     stages {
         stage('prepare') {
             steps {
@@ -14,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('check shared library') {
             steps {
                 script {
                     Sample sample = new Sample()
@@ -23,10 +27,10 @@ pipeline {
             }
         }
 
-        stage('deploy') {
+        stage('check maven installation') {
             steps {
                 script {
-                    echo 'deploy'
+                    sh 'mvn --version'
                 }
             }
         }

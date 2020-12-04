@@ -16,9 +16,9 @@ It will stop an already running container, pull, build, start and open Jenkins' 
 │   ├── security.yaml
 │   ├── tool.yaml
 │   └── unclassified.yaml
-├── docker-compose.yaml             # docker compose for starting container
+├── docker-compose.yaml             # docker compose file for starting container
 ├── Dockerfile                      # docker file for building image
-├── jobs                            # director with pipelines
+├── jobs                            # directory with pipelines
 │   ├── dsl                         # directory with pipelines definitions
 │   │   └── sample_job.groovy
 │   └── sample-job.groovy
@@ -29,8 +29,10 @@ It will stop an already running container, pull, build, start and open Jenkins' 
 │       └── patsan
 │           └── Sample.groovy
 ├── start.sh                        # starting script for faster testing
-└── test                            # test for library and pipelines
-    └── org
-        └── patsan
-            └── SampleTest.groovy
+├── test                            # tests for jenkins-shared library and pipelines
+│   └── org
+│       └── patsan
+│           └── SampleTest.groovy
+└── trace
+    └── config.yaml                 # casc config file for tracing changes by auto-generated file by plugin
 ```

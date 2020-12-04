@@ -7,6 +7,9 @@ jenkins:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
+  disabledAdministrativeMonitors:
+    - "jenkins.diagnostics.SecurityIsOffMonitor"
+    - "jenkins.diagnostics.RootUrlNotSetMonitor"
   labelAtoms:
     - name: "master"
   markupFormatter: "plainText"

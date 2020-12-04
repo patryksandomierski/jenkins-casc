@@ -4,4 +4,12 @@ tool:
     installations:
       - home: "git"
         name: "Default"
+  maven:
+    installations:
+      - name: "Default"
+        properties:
+          - installSource:
+              installers:
+                - maven:
+                    id: "3.6.3"
 ...
