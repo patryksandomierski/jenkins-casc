@@ -8,8 +8,13 @@ multibranchPipelineJob('jenkins-shared') {
         }
     }
     configure {
-        def traitBlock = it / 'sources' / 'data' / 'jenkins.branch.BranchSource' / 'source' / 'traits'
-        traitBlock << 'jenkins.plugins.git.traits.BranchDiscoveryTrait' {}
+        def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
+        traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {
+            strategyId(3)
+        }
+        traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+            strategyId(1)
+        }
     }
     factory {
         workflowBranchProjectFactory {
@@ -22,6 +27,6 @@ multibranchPipelineJob('jenkins-shared') {
         }
     }
     triggers {
-        cron('*/30 * * * *')
+        periodic(10)
     }
 }
