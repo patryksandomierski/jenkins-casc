@@ -10,4 +10,8 @@ class SampleTest {
         Sample sample = new Sample()
         assertThat(sample.sayHello()).isEqualTo('hello')
     }
+    @Test
+    void checkingIfMultiBranchPipelineWorks() {
+        assert true == false
+    }
 }
