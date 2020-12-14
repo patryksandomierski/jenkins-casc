@@ -12,7 +12,7 @@ pipeline {
 
     stages {
         stage('Build PR') {
-            when { expression { BRANCH_NAME ==~ /PR-.*/ } }
+            when { expression { env.BRANCH_NAME ==~ /PR-.*/ } }
             stages {
                 stage('Compile') { steps { script { compile() } } }
                 stage('Validate') { steps { script { test() } } }
