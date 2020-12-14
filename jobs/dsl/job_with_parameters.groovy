@@ -1,6 +1,7 @@
 import util.Environments
+import util.JobUtil
 
-pipelineJob("job-with-parameters") {
+def job = pipelineJob("job-with-parameters") {
     description()
     keepDependencies(false)
     parameters {
@@ -8,22 +9,10 @@ pipelineJob("job-with-parameters") {
         choiceParam("ENVIRONMENT", Environments.main, "select environment to deploy")
         booleanParam("ENABLE_PROFILER", false, "check if you want to open ports for profiling")
     }
-    definition {
-        cpsScm {
-            scm {
-                git {
-                    remote {
-                        url("https://github.com/patryksandomierski/jenkins-casc.git")
-                    }
-                    branch("main")
-                }
-            }
-            scriptPath("jobs/job-with-parameters.groovy")
-            lightweight(true)
-        }
-    }
     disabled(false)
     properties {
         disableConcurrentBuilds()
     }
 }
+
+JobUtil.setDefinition(job, 'job-with-parameters.groovy')
