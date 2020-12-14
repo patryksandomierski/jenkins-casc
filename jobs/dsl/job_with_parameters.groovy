@@ -1,20 +1,30 @@
-pipeline {
+@Library('jenkins-shared')
+import org.patsan.Environments
 
-    agent any
-
-    tools {
-        maven 'Default'
+pipelineJob("job-with-parameters") {
+    description()
+    keepDependencies(false)
+    parameters {
+        stringParam("VERSION", "", "version to deploy")
+        choiceParam("ENVIRONMENT", Environments.classic, "select environment to deploy")
+        booleanParam("ENABLE_PROFILER", false, "check if you want to open ports for profiling")
     }
-
-    stages {
-        stage('-') {
-            steps {
-                script {
-                    echo "version: ${params.VERSION}"
-                    echo "env: ${params.ENVIRONMENT}"
-                    echo "profiler?: ${params.ENABLE_PROFILER}"
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url("https://github.com/patryksandomierski/jenkins-casc.git")
+                    }
+                    branch("main")
                 }
             }
+            scriptPath("jobs/job-with-parameters.groovy")
+            lightweight(true)
         }
+    }
+    disabled(false)
+    properties {
+        disableConcurrentBuilds()
     }
 }
