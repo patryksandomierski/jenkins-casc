@@ -5,7 +5,7 @@ pipelineJob("job-with-parameters") {
     keepDependencies(false)
     parameters {
         stringParam("VERSION", "", "version to deploy")
-        choiceParam("ENVIRONMENT", Environments.classic, "select environment to deploy")
+        choiceParam("ENVIRONMENT", Environments.main, "select environment to deploy")
         booleanParam("ENABLE_PROFILER", false, "check if you want to open ports for profiling")
     }
     definition {
