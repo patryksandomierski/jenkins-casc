@@ -1,5 +1,4 @@
-@Library('jenkins-shared') _
-import org.patsan.Environments
+import util.Environments
 
 pipelineJob("job-with-parameters") {
     description()

@@ -1,4 +1,4 @@
-package org.patsan
+package util
 
 interface Environments {
     /** classic environments for ci/cd */
